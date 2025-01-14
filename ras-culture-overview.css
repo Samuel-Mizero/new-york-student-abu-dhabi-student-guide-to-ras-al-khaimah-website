@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    background-color: white;
+}
+
+header {
+    background: #444749;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.lifestyle-overview {
+    padding: 2px;
+    text-align: center;
+    background-color: white;
+}
+
+.lifestyle-container {
+    display: flex;
+    justify-content: space-between; /* Distributes space evenly */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.lifestyle-item {
+    background: #a2a0a3;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Adjusts the width of each item */
+    margin: 10px;
+    padding: 10px;
+}
+
+.lifestyle-item img {
+    width: 100%; /* Makes the image responsive */
+    border-radius: 8px; /* Rounds the corners */
+}
+
+.lifestyle-item h2 {
+    margin: 10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #030018;
+    color: #fff;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 21px;   /* Adjust as needed */
+    right: 30px; /* Align to the right edge */
+    z-index: 2;  /* Ensure it appears above other elements */
+}
+.tabs {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    position: absolute;
+    top: 50px; /* Adjust based on the height of the logo and menu icon */
+    right: 10px;
+    background-color: #444749;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1; /* Ensure it appears below the menu icon */
+    font-size: 16px;
+}
+.tabs a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block; /* Make links block elements */
+}
+.tabs a:hover {
+    background-color: #c45b2a; /* Change background on hover c42a79 */
+    
+}
+
+button:hover {
+    background-color: #31d431;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+button:hover {
+    background-color: #27e13a;
+}

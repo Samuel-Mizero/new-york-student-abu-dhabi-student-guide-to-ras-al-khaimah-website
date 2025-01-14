@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitality Services</title>
+    <link rel="icon" href="Rasicon.png">
+    <link rel="stylesheet" href="hospitality.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Hospitality Services</div>
+        <button class="menu-icon" onclick="toggleTabs()">☰</button>
+        <div class="tabs" id="tabs">
+            <a href="index.html">Home Page</a>
+            <a href="ras-culture-overview.html">Culture Overview</a>
+            <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+            <a href="ras.shopping.html">Malls Go Shopping</a>
+            <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+            <a href="hospitality.html">Hospitality Services</a>
+            <a href="ras-contact.html">Contact Us</a>
+        </div>
+    
+        <script>
+            function toggleTabs() {
+                const tabs = document.getElementById('tabs');
+                if (tabs.style.display === 'flex') {
+                    tabs.style.display = 'none'; // Hide tabs
+                } else {
+                    tabs.style.display = 'flex'; // Show tabs
+                }
+            }
+        </script>
+    </header>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <img src="one.png" alt="Hotel" style="animation-delay: 0s;">
+        <img src="resto.png" alt="Restaurant" style="animation-delay: 2s;">
+        <img src="hotel.png" alt="Hotel" style="animation-delay: 4s;">
+        <img src="cofee.png" alt="Cafe" style="animation-delay: 6s;">
+        <img src="refood.png" alt="Restaurant" style="animation-delay: 8s;">
+        <img src="wo.png" alt="Hotel" style="animation-delay: 10s;">
+        <img src="woo.png" alt="Hotel" style="animation-delay: 12s;">
+        <!-- Text  below the slider -->
+    </div>
+            <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title"><b>Hotels</b></span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <p>Experience comfortable stays at a variety of hotels ranging from budget-friendly options to luxurious accommodations. Prices range from 100-400 AED per night, offering great amenities and services.</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title"><b>Restaurants</b></span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <p>Discover a diverse culinary scene with local and international dining options. Enjoy traditional Emirati dishes and a variety of cuisines, ensuring a delightful experience for every palate.</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title"><b>Cafes</b></span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <p>Relax and unwind at charming cafes that offer a cozy atmosphere and delicious beverages. From coffee to desserts, there's a perfect spot for everyone looking to enjoy a leisurely visit.</p>
+                <p style="font-size: 16px; color: black; padding-bottom: 6px; padding-top: 6px; text-align: center"><i><b>!!!RAK Cafes' Ashuk Ice Cream is unique!!!</i></b></p>
+                <img src="Achuk.png" alt="achuk ice Cream">
+                <p>Ashuk Ice Cream is deeply tied to Ras Al Khaimah’s rich cultural heritage and local ingredients. Its uniqueness lies in the use of locally sourced flavors like dates, saffron, and rosewater, which reflect the emirate’s traditional tastes. Many family-run establishments in RAK have preserved and passed down their secret recipes for generations, giving each scoop a distinct, authentic flavor that can’t be found elsewhere. The method of serving Ashuk Ice Cream, often in a warm, welcoming environment, further enhances its connection to RAK’s hospitality and tradition. This makes it a symbol of the region’s culinary identity!</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d57474.99388933221!2d55.8799838!3d25.7974002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef6714ef59f4505%3A0xc5c1bad7c8d566b5!2z2LnYp9i02YjZgiDYp9mK2LMg2YPYsdmK2YUgQXNodWsgSWNlIENyZWFt!5e0!3m2!1sen!2sae!4v1736838372036!5m2!1sen!2sae" allowfullscreen></iframe>
+            </div>
+        </div>
+        <script>
+            function toggleAccordion(header) {
+                const content = header.nextElementSibling;
+                const isActive = header.parentElement.classList.toggle('active');
+    
+                if (isActive) {
+                    content.style.display = 'block';
+                    setTimeout(() => content.style.maxHeight = content.scrollHeight + 'px', 0);
+                } else {
+                    content.style.maxHeight = 0;
+                    content.style.display = 'none';
+                }
+            }
+        </script>
+    <!-- Google Map Embed -->
+    <p style="color: black; font-style: italic; font-size: large">Click the arrow in the top-left corner of the map below to dive into the charm of Ras Al Khaimah's hotels, restaurants, and cafes!</p>
+
+    <iframe id="map" src="https://www.google.com/maps/d/embed?mid=1xYD2x6eueeWhu1-zfVSQbtSz7svE89s&ehbc=2E312F" allowfullscreen></iframe>
+    <!-- Footer Section -->
+    <footer>
+        <p><a href="hospitality.html"><b>Return To Top</b></a></p>
+        <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+        <p> Phone: <a href="tel:+971 562396347">+971 562396347</a> |  Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+        <p>&copy; 2025 Hospitality Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Rasicon.png">
+    <title>Tourism and Entertainment in RAK</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d5d3d7;
+            margin-bottom: 1.5cm;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            border: none;
+        }
+
+        /* Header and Footer */
+        header {
+            background-color: #444749;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        footer {
+            text-align: center;
+            margin-bottom: 0%;
+            padding: 5px 0;
+            background: #030018;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        header h1, footer p {
+            margin: 1;
+        }
+
+        /* Top Section */
+        .top-section {
+            position: relative;
+            height: 65vh;
+            overflow: hidden;
+        }
+
+        .top-section .slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .top-section .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fade 12s infinite;
+            opacity: 0;
+        }
+
+        .top-section .slideshow img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .top-section .slideshow img:nth-child(2) {
+            animation-delay: 4s;
+        }
+
+        .top-section .slideshow img:nth-child(3) {
+            animation-delay: 8s;
+        }
+
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            33%, 66% { opacity: 1; }
+        }
+
+        .top-section .title {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Middle Section */
+        .middle-section {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 10px;
+            position: relative;
+            margin-top: 0.2cm;
+            margin-bottom: 0.2cm;
+        }
+
+        .department-card {
+            perspective: 1000px; /* Increased perspective for better flip effect */
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card .label {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 85px;
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .card-front {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ca22b9;
+            overflow: hidden;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: rgb(234, 78, 192);
+        }
+
+        .card-back {
+            background: #57a5aa;
+            transform: rotateY(180deg);
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .card-back h3 {
+            margin-top: 0.5;
+            color: rgb(39, 241, 16);
+            font-family: Arial, sans-serif;
+        }
+
+        .card.clicked {
+            transform: rotateY(180deg);
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            height: 65vh;
+            font-family:Arial, sans-serif;
+            font-size: medium;
+            text-align: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 33px;   /* Adjust as needed */
+            right: 30px; /* Align to the right edge */
+            z-index: 2;  /* Ensure it appears above other elements */
+        }
+        .tabs {
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            position: absolute;
+            top: 50px; /* Adjust based on the height of the logo and menu icon */
+            right: 10px;
+            background-color: #444749;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1; /* Ensure it appears below the menu icon */
+        }
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block; /* Make links block elements */
+        }
+        .tabs a:hover {
+            background-color: #c45b2a; /* Change background on hover c42a79 */
+            
+        }
+
+        button:hover {
+            background-color: #31d431;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #27e13a;
+        }
+        
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.label').forEach(label => {
+                label.addEventListener('click', (event) => {
+                    const card = label.closest('.card');
+                    card.classList.toggle('clicked');
+                    event.stopPropagation(); // Prevent click event from bubbling up
+                }); 
+             });
+        }); 
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Tourism And Entertainment Sites</h1>
+        <button class="menu-icon" onclick="toggleTabs()">☰</button>
+        <div class="tabs" id="tabs">
+            <a href="index.html">Home Page</a>
+            <a href="ras-culture-overview.html">Culture Overview</a>
+            <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+            <a href="ras.shopping.html">Malls Go Shopping</a>
+            <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+            <a href="hospitality.html">Hospitality Services</a>
+            <a href="ras-contact.html">Contact Us</a>
+        </div>
+
+        <script>
+            function toggleTabs() {
+                const tabs = document.getElementById('tabs');
+                if (tabs.style.display === 'flex') {
+                    tabs.style.display = 'none'; // Hide tabs
+                } else {
+                    tabs.style.display = 'flex'; // Show tabs
+                }
+            }
+        </script>
+    </header>
+
+    <!-- Top Section -->
+    <div class="top-section">
+        <div class="slideshow">
+            <img src="well.png" alt="Slide 1">
+            <img src="aw.png" alt="Slide 2">
+            <img src="wellll.png" alt="Slide 3">
+        </div>
+    </div>
+    <div class="title" style="text-align: center; font-weight: bold; color: black; margin-top: 14px;font-size: x-large;">Welcome to travel and entertain at Ras Al Khaimah!</div>
+    <div class="title" style="text-align: center; font-weight:normal; color: black; margin-top: 6px;"><i>Click on each image's label to flap it</i></div>
+
+    <!-- Middle Section -->
+    <div class="middle-section">
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="qsr.png" alt="al Qasr">
+                    <div class="label">+ Haunted Palace</div>
+                </div>
+                <div class="card-back">
+                    <h3>Visit Haunted Palace </h3>
+                    <p>Visit Qasr Al Ghamedh, known as The Mysterious Palace, one of Ras Al Khaimah’s most enigmatic landmarks. Shrouded in folklore, this ancient structure captivates visitors with its unique architecture and haunting atmosphere. Legends of its grandeur and abandonment make it a fascinating site for history enthusiasts and curious travelers.
+                    </p>
+                    <div class="label">+ Haunted Palace</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="peals.png" alt="Suwaidi">
+                    <div class="label">+ Suwaidi Pearls</div>
+                </div>
+                <div class="card-back">
+                    <h3>Suwaidi Pearls Farm</h3>
+                    <p>Suwaidi Pearls Farm, located in Al Rams, the northernmost neighborhood of Ras Al Khaimah, offers a glimpse into the region's enduring village life and its rich history with the ocean and pearls. Visitors can learn about modern pearl farming techniques and explore the charming Suwaidi Pearl farmhouse on a floating pontoon.</p>
+                    </p>
+                    <div class="label">+ Suwaidi Pearls</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="hikin.png" alt="Hiking">
+                    <div class="label">+ Hiking</div>
+                </div>
+                <div class="card-back">
+                    <h3>Hiking in the Mountains</h3>
+                    <p>Discover the Hajar Mountains, where adventure awaits! Explore rugged trails that offer breathtaking views and refreshing cooler temperatures. Located around Jebel Jais, these scenic paths are perfect for outdoor enthusiasts. Best of all, this experience is completely free! Join us for an unforgettable journey in nature!
+                    </p>
+                    <div class="label">+ Hiking</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="view.png" alt="view">
+                    <div class="label">+ The View...</div>
+                </div>
+                <div class="card-back">
+                    <h3>The View by 1484</h3>
+                    <p>Perched atop the Jais Adventure Park Centre, The View by 1484 offers a chic outdoor lounge experience with a laid-back atmosphere. Guests can savor light bites, refreshing beverages, and a delectable breakfast menu while taking in breathtaking panoramic views of the Hajar mountain range. This scenic spot is also perfect for enjoying a sundowner moment!</p>
+                    </p>
+                    <div class="label">+ The View...</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="zip.png" alt="Zipline">
+                    <div class="label">+ Zipline</div>
+                </div>
+                <div class="card-back">
+                    <h3>Jebel Jais Flight</h3>
+                    <p>Experience the thrill of the world's longest zipline at Jebel Jais, where adventure awaits! Spanning 2.83 km, this zipline allows you to soar through the air at speeds of up to 160 km/h, offering breathtaking views of the stunning landscape. Prices start from AED 325, making it an unforgettable experience you won't want to miss!</p>
+                    <div class="label">+ Zipline</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="strt.png" alt="Water Sports">
+                    <div class="label">+ Kuwaiti Walk</div>
+                </div>
+                <div class="card-back">
+                    <h3>Wandering in the Kuwaiti Street</h3>
+                    <p>Kuwaiti Street is a vibrant hub filled with shops unique to Ras Al Khaimah and its culture. From hidden gems in fashion and jewelry to charming bakeries and more, this street offers a delightful exploration of local life. Stroll along its humble roads, lose yourself in the variety of stores, and connect with the people who call RAK home.
+                    </p>
+                    </p>
+                    <div class="label">+ Kuwaiti Walk</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="camp.png" alt="Camping">
+                    <div class="label">+ Camping</div>
+                </div>
+                <div class="card-back">
+                    <h3>Mountains/Desert Camping</h3>
+                    <p>Experience the tranquility of the mountains or the vastness of the desert by setting up your own campsite. With designated camping areas in the Hajar Mountains and desert regions, you can immerse yourself in nature’s beauty. Best of all, this adventure is free if you self-arrange your stay!
+
+                    </p>
+                    <div class="label">+ Camping</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="al.png" alt="Heritage Village">
+                    <div class="label">+ Heritage Village</div>
+                </div>
+                <div class="card-back">
+                    <h3>Al Jazeera Al Hamra Heritage Village</h3>
+                    <p>Visit Al Jazeera Al Hamra, the last historical pearling village in the Gulf, where pearls have been vital since prehistoric times. This heritage site in Al Jazeera Al Hamra Heritage Village offers a unique glimpse into the UAE's rich past, with its name meaning "Red Island" in Arabic.
+
+                    </p>
+                    <div class="label">+ Heritage Village</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="con.png" alt="Corniche">
+                    <div class="label">+ Corniche</div>
+                </div>
+                <div class="card-back">
+                    <h3>Mina Al Arab Corniche</h3>
+                    <p>Explore Mina Al Arab Corniche, a picturesque waterfront promenade in Ras Al Khaimah. Ideal for leisurely walks, it features stunning coastal views and a variety of dining options. Enjoy a relaxing day by the water, with free access for all!
+
+                    </p>
+                    <div class="label">+ Corniche</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="glam.png" alt="Glamping">
+                    <div class="label">+ Glamping</div>
+                </div>
+                <div class="card-back">
+                    <h3>Glamping</h3>
+                    <p>Experience glamping at its finest with two fantastic options! Longbeach Campground blends tradition with luxury by the beach in Al Hamra, starting at approximately $90 per night. Alternatively, Bedouin Oasis Camp offers an authentic desert experience with modern comforts in the Ras Al Khaimah desert, with varying prices.
+
+                    </p>
+                    <div class="label">+ Glamping</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="water.png" alt="Water Sports">
+                    <div class="label">+ Water Sports</div>
+                </div>
+                <div class="card-back">
+                    <h3>Water Sports at Al Hamra Marina</h3>
+                    <p>Enjoy exciting water sports at Al Hamra Marina! Engage in activities like kayaking, paddleboarding, and jet skiing. Located in Al Hamra, there's something for everyone. Prices vary by activity, with water skiing starting from AED 365.
+
+                    </p>
+                    <div class="label">+ Water Sports</div>
+                </div>
+            </div>
+        </div>
+        <div class="department-card">
+            <div class="card">
+                <div class="card-front">
+                    <img src="sand.png" alt="Sand Cruising">
+                    <div class="label">+ Sand Cruising</div>
+                </div>
+                <div class="card-back">
+                    <h3>Awafi Sand Cruising</h3>
+                    <p>Experience the thrill of dune bashing in the Awafi Desert! Located in Ras Al Khaimah, this adventure offers excitement for all. Prices vary depending on the rental company and motorbike options available.
+                        .</p>
+                    <div class="label">+ Sand Cruising</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+        <p><b>Click on the arrow-like an icon in the top-left corner of the map below to expand and deeply explore a treasure world of tourism and entertainment sites at Ras Al Khaimah!</b></p>
+        <div class="map-container">
+            <iframe id="map" src="https://www.google.com/maps/d/embed?mid=1V5rwDaYM87_MmrzauFYPNUBOidhXF8Y&ehbc=2E312F" allowfullscreen></iframe>
+        </div>
+    </div>
+    <footer>
+        <p><a href="ras-torism-entertain.html"><b>Return To Top</b></a></p>
+        <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+        <p> Phone: <a href="tel:+971 562396347">+971 562396347</a>    |    Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+        <p>&copy; 2025 RAK Tourism. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

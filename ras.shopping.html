@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Rasicon.png">
+    <title>Shopping in Ras Al Khaimah</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            line-height: 1.5;
+        }
+        header {
+            background-color: #444749;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            font-size:large;
+
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: #f2f7f3;
+        }
+
+        .accordion {
+            background: rgb(235, 60, 170);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.3s ease;
+        }
+        .accordion:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        .accordion-header {
+            background: #7A4B3A;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            font-size:larger;
+            justify-content: space-between;
+            align-items: center; /* Align items vertically */
+        }
+
+        .accordion-header span.title {
+            flex: 1; /* Allow title to take available space */
+            text-align: center; /* Center the title text */
+        }
+
+        .accordion-header span.plus-sign {
+            margin-left: 10px; /* Add some space between title and plus sign */
+        }
+
+        .accordion-header:hover {
+            background: #7A4B3A;
+            text-align: center;
+        }
+        .accordion-content {
+            padding: 15px;
+            display: none;
+            background: #a2a0a3;
+            color: rgb(243, 245, 248);
+        }
+        .accordion-content p {
+            margin: 0;
+            color: #060606;
+            font-family: Arial, sans-serif;
+        }
+        .accordion-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .accordion-content iframe {
+            width: 100%;
+            height: 200px;
+            margin-top: 0.35cm;
+            margin-bottom: 0.2cm;
+            border: none;
+            border-radius: 10px;
+        }
+        .plus-sign {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .active .plus-sign {
+            transform: rotate(45deg);
+        }
+        footer {
+            background: #030018;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            margin-top: 20px;
+        }
+        .menu-icon {
+    cursor: pointer;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;   /* Adjust as needed */
+    right: 30px; /* Align to the right edge */
+    z-index: 2;  /* Ensure it appears above other elements */
+}
+.tabs {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    position: absolute;
+    top: 50px; /* Adjust based on the height of the logo and menu icon */
+    right: 10px;
+    background-color: #444749;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1; /* Ensure it appears below the menu icon */
+    font-size: 16px;
+}
+.tabs a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block; /* Make links block elements */
+}
+.tabs a:hover {
+    background-color: #c45b2a; /* Change background on hover c42a79 */
+    
+}
+
+button:hover {
+    background-color: #31d431;
+}
+button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #27e13a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shopping in Ras Al Khaimah</h1>
+        <button class="menu-icon" onclick="toggleTabs()">☰</button>
+        <div class="tabs" id="tabs">
+            <a href="index.html">Home Page</a>
+            <a href="ras-culture-overview.html">Culture Overview</a>
+            <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+            <a href="ras.shopping.html">Malls Go Shopping</a>
+            <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+            <a href="hospitality.html">Hospitality Services</a>
+            <a href="ras-contact.html">Contact Us</a>
+        </div>
+
+        <script>
+            function toggleTabs() {
+                const tabs = document.getElementById('tabs');
+                if (tabs.style.display === 'flex') {
+                    tabs.style.display = 'none'; // Hide tabs
+                } else {
+                    tabs.style.display = 'flex'; // Show tabs
+                }
+            }
+        </script>
+    </header>
+
+    <section>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title">Manar Mall</span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <img src="minar.png" alt="Manar Mall">
+                <p>Unleash your shopping spirit at Manar Mall, the largest and most popular shopping destination in Ras Al Khaimah! Dive into a vibrant mix of international and local retail brands, catering to every style and budget. Enjoy a delightful dining experience with diverse options in the food court, featuring beloved chains and local favorites.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1796.3028228326232!2d55.96432493842243!3d25.783586094334545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef676cf7976e941%3A0x56fc51b4dfe1241!2sManar%20Mall!5e0!3m2!1sen!2sae!4v1736537479250!5m2!1sen!2sae" allowfullscreen></iframe>
+                <p>But that’s not all! Catch the latest blockbusters at the cinema, let your kids play in the fun-filled play areas, or stroll along the stunning waterfront promenade for a relaxing break. With a massive Virgin store and countless choices at your fingertips, Manar Mall is your ultimate destination for shopping, dining, and entertainment! Come and explore the endless possibilities today!</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title">Al Hamra Mall</span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <img src="ham.png" alt="Al Hamra Mall">
+                <p>Experience the charm of Al Hamra Mall, conveniently located near Al Hamra Village! This modern shopping haven caters to both residents and tourists, featuring a delightful mix of high-end and mid-range brands. Recently renovated in 2024, the mall offers a fresh and inviting atmosphere.</p>
+                </p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.647634893357!2d55.779216074490826!3d25.68297287740148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef60a6a9a7f634d%3A0x24d1990c3ea9f134!2sAl%20Hamra%20Mall!5e0!3m2!1sen!2sae!4v1736537297281!5m2!1sen!2sae" allowfullscreen></iframe>
+                <p>Indulge your taste buds with an array of dining options, including favorites like Five Guys and Pizza Express, alongside other popular food brands. Plus, enjoy the latest films at the cinema for a perfect day out. Whether you're shopping or dining, Al Hamra Mall promises an unforgettable experience for everyone!
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title">Al Aswaq RAK National Markets</span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <img src="aswaq.png" alt="Al Aswaq RAK National Markets">
+                <p>Discover Al Aswaq RAK National Markets, a vibrant shopping destination in Ras Al Khaimah that beautifully blends traditional and modern retail experiences! This bustling hub attracts locals and visitors alike, offering a diverse range of affordable products.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d114999.76922442754!2d55.7903552!3d25.7460182!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef6742b7cd76b41%3A0x12aae8ec4e5d6b0f!2sAlAswaq%20RAK%20National%20Markets!5e0!3m2!1sen!2sae!4v1736536144293!5m2!1sen!2sae" allow allowfullscreen></iframe>
+                <p>Immerse yourself in the local charm as you explore stalls and small shops reminiscent of a traditional souq, delivering an authentic Emirati shopping experience. From unique finds to everyday essentials, Al Aswaq RAK National Markets promises an unforgettable adventure for all who visit!</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title">Al Naeem Mall</span>
+                <span class="plus-sign">+</span>
+            </div>
+            <div class="accordion-content">
+                <img src="naee.png" alt="Al Naeem Mall">
+                <p>Explore Al Naeem Mall, a premier shopping destination in Ras Al Khaimah that combines modern convenience with a delightful shopping experience! Nestled near the beautiful Ras Al Khaimah Corniche, this mall offers the perfect opportunity to enjoy a leisurely stroll along the waterfront after a day of shopping.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.349072541301!2d55.965350074495326!3d25.79205547733285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef676cda6a4c09b%3A0xca1c5dac709e5a7a!2sAl%20Naeem%20Mall!5e0!3m2!1sen!2sae!4v1736536968127!5m2!1sen!2sae" allowfullscreen></iframe>
+                <p>With a wide range of retail options and a welcoming atmosphere, Al Naeem Mall is your go-to spot for both retail therapy and relaxation. Come and discover the ideal blend of shopping and scenic beauty today!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><a href="ras.shopping.html"><b>Return To Top</b></a></p>
+        <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+        <p> Phone: <a href="tel:+971 562396347">+971 562396347</a> |  Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+        <p>&copy; 2025 RAK Shopping. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.parentElement.classList.toggle('active');
+
+            if (isActive) {
+                content.style.display = 'block';
+                setTimeout(() => content.style.maxHeight = content.scrollHeight + 'px', 0);
+            } else {
+                content.style.maxHeight = 0;
+                content.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

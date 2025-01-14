@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAK Culture Overview</title>
+    <link rel="stylesheet" href="ras-culture-overview.css">
+    <link rel="icon" href="Rasicon.png">
+</head>
+<body>
+    <header>
+        
+        <div class="logo"><b>Ras Al Khaimah Culture</div></b>
+        <button class="menu-icon" onclick="toggleTabs()">☰</button>
+        <div class="tabs" id="tabs">
+            <a href="index.html">Home Page</a>
+            <a href="ras-culture-overview.html">Culture Overview</a>
+            <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+            <a href="ras.shopping.html">Malls Go Shopping</a>
+            <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+            <a href="hospitality.html">Hospitality Services</a>
+            <a href="#contactUs">Contact Us</a>
+        </div>
+
+        <script>
+            function toggleTabs() {
+                const tabs = document.getElementById('tabs');
+                if (tabs.style.display === 'flex') {
+                    tabs.style.display = 'none'; // Hide tabs
+                } else {
+                    tabs.style.display = 'flex'; // Show tabs
+                }
+            }
+        </script>
+    </header>
+
+    <main>
+        <section class="lifestyle-overview">
+            <p>Ras Al Khaimah is a treasure trove of Emirati heritage, offering a rich collection of culture, traditions, and values rooted in centuries of history.</p>
+            <div class="lifestyle-container">
+                <div class="lifestyle-item">
+                    <h2>Bedouin Lifestyle</h2>
+                    <img src="life in desert.png" height="250" alt="Bedouin Lifestyle">
+                        <aside>
+                            <details>
+                                <summary>
+                                Ras Al Khaimah has an interesting bedouin life! 
+                                </summary>
+                                <p>The Bedouin culture represents the traditional way of life of those who inhabit the desert, emphasizing hospitality, resilience, and a deep connection to the land.</p>
+                            </details>
+                        </aside>
+                </div>
+                <div class="lifestyle-item">
+                    <h2>Coastal Lifestyle</h2>
+                    <img src="coast.png" height="250" alt="Coastal Lifestyle">
+                    <aside>
+                        <details>
+                            <summary>
+                            The coastal life in Ras Al Khaimah is different! 
+                            </summary>
+                            <p>The coastal lifestyle in Ras Al Khaimah is characterized by fishing, trade, and a rich maritime heritage, reflecting the community's reliance on the sea for sustenance and livelihood.</p>
+                        </details>
+                    </aside>
+                </div>
+                <div class="lifestyle-item">
+                    <h2>Mountain Lifestyle</h2>
+                    <img src="mountain.png" height="250" alt="Mountain Lifestyle">
+                    <aside>
+                        <details>
+                            <summary>
+                            There is beauty in Ras Al Khaimah mountain life! 
+                            </summary>
+                            <p>The mountain lifestyle showcases the serene and rugged beauty of the Hajar Mountains, where communities engage in agriculture and enjoy a tranquil existence amidst stunning landscapes.</p>
+                        </details>
+                    </aside>
+                </div>
+            </div>
+            <p> Hospitality lies at the heart of RAK’s values—visitors are often greeted with warmth and offered traditional Arabic coffee and dates as a sign of respect and welcome.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="ras-culture-overview.html"><b>Return To Top</b></a></p>
+        <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+        <p> Phone: <a href="tel:+971 562396347">+971 562396347</a> |  Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+        <p>&copy; 2025 RAK Culture. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Rasicon.png">
+    <title>Transportation from Abu Dhabi to Ras Al Khaimah</title>
+    <style>
+
+ /* Top Section */
+        .top-section {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+        .top-section .title {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .top-section .slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .top-section .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fade 12s infinite;
+            opacity: 0;
+
+        }
+
+        .top-section .slideshow img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .top-section .slideshow img:nth-child(2) {
+            animation-delay: 4s;
+        }
+
+        .top-section .slideshow img:nth-child(3) {
+            animation-delay: 8s;
+        }
+
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            33%, 66% { opacity: 1; }
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color:rgb(218, 214, 214);        /*#AFAFAF gray*/
+            ;
+        }
+        header {
+            background-color: #444749;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            border: 2px solid black; /* Example: 2px solid border with color #45a049 */
+            width: 30%;
+            color: black;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+        .circle-card {
+            border-radius: 50%;
+            background-color: #d3cdf5;
+            text-align: center;
+            color: black;
+            width: 180px;
+            height: 180px;
+            /*border: 5px solid black;     /* Circular border */
+            font-weight: 400;
+            font-size: large;
+            line-height: 180px;
+            margin: 20px auto;
+            transition: transform 0.3s;
+            background-color: #a2a0a3;     /* Background color */
+            position: relative;
+
+        }
+        .circle-card:hover {
+            transform: scale(1.1);
+        }
+        .arrow-card {
+            width: 435px; /* Adjust width as needed */
+            height: 62px; /* Adjust height for better visibility */
+            background-color: white; /* Change color as needed */
+            position: absolute;
+            border: 2px solid black; /* Example: 2px solid border with color #45a049 */
+            transition: opacity 0.5s;
+            opacity: 0; /* Start hidden */
+            line-height: 27px; /* Center text vertically */
+            text-align: center;
+            justify-content: center;
+            box-sizing: content-box;
+            align-items: center;
+            padding: 12px;
+            place-content:calc(center);
+            color: black;
+            border-radius: 5px; /* Slightly rounded corners */
+        }
+        .arrow.left {
+            left: -465px; /* Position to the left of the circle */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust to center */
+        }
+        .arrow.right {
+            right: -465px; /* Position to the right of the circle */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust to center */
+        }
+        footer {
+            background-color: #030018;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .map iframe {
+            width: 100%;
+            height: 380px;
+            margin-top: 0.35cm;
+            margin-bottom: 0.2cm;
+            border: none;
+            border-radius: 10px;
+        }
+        
+.menu-icon {
+    cursor: pointer;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 45px;   /* Adjust as needed */
+    right: 30px; /* Align to the right edge */
+    z-index: 2;  /* Ensure it appears above other elements */
+}
+.tabs {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    position: absolute;
+    top: 50px; /* Adjust based on the height of the logo and menu icon */
+    right: 10px;
+    background-color: #444749;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1; /* Ensure it appears below the menu icon */
+    font-size: 16px;
+}
+.tabs a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block; /* Make links block elements */
+}
+.tabs a:hover {
+    background-color: #c45b2a; /* Change background on hover c42a79 */
+    
+}
+
+button:hover {
+    background-color: #31d431;
+}
+button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #27e13a;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Explore Transportation Options</h1>
+    <p>Your gateway from Abu Dhabi to Ras Al Khaimah</p>
+    <button class="menu-icon" onclick="toggleTabs()">☰</button>
+    <div class="tabs" id="tabs">
+        <a href="index.html">Home Page</a>
+        <a href="ras-culture-overview.html">Culture Overview</a>
+        <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+        <a href="ras.shopping.html">Malls Go Shopping</a>
+        <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+        <a href="hospitality.html">Hospitality Services</a>
+        <a href="ras-contact.html">Contact Us</a>
+    </div>
+
+    <script>
+        function toggleTabs() {
+            const tabs = document.getElementById('tabs');
+            if (tabs.style.display === 'flex') {
+                tabs.style.display = 'none'; // Hide tabs
+            } else {
+                tabs.style.display = 'flex'; // Show tabs
+            }
+        }        
+    </script>
+</header>
+
+ <!-- Top Section -->
+    <div class="top-section">
+        <div class="slideshow">
+            <img src="nyu.png" alt="Slide 1">
+            <img src="btop.png" alt="Slide 2">
+            <img src="ttop.png" alt="Slide 3">
+        </div>
+    </div>
+<div class="services">
+    <div class="service-card">
+        <h2><b>Taxi Services</h2></b>
+        <p>The fastest and direct ride to Ras Al Khaimah!</p>
+        <p>Despite being <em><b>less economical</em></b>, it makes journey enjoyable</p>
+        <p>Approx. 2.5 hours travel on AED 300-400.</p>
+    </div>
+    <div class="service-card">
+        <h2><b>School Shuttle</h2></b>
+        <p>Occationally NYUAD offers free transportation to the other emirates like RAK</p>
+        <p>However, it operates on a first come, first serve basis </p>
+        <p>Make sure to check the registration time and process </p>
+    </div>
+    <div class="service-card">
+        <h2><b>Public Buses</h2></b>
+        <p>The most a <em><b>budget-friendly</em></b> option for traveling to RAK</p>
+        <p> You can take a bus from Abu Dhabi Central Bus Station to Dubai, then to a RAK-bound bus</p>
+        <p>A scenic 4-5 hour journey with fares around AED 30-50</p>        
+    </div>
+</div>
+
+
+<div class="circle-card" id="travel-tips">
+    <b>Travel Tips</b>
+    <div class="arrow-card arrow left"></div>
+    <div class="arrow-card arrow right"></div>
+</div>
+<div class="circle-card" id="faqs">
+    <b>FAQs</b>
+    <div class="arrow-card arrow left"></div>
+    <div class="arrow-card arrow right"></div>
+</div> 
+
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d924638.685084786!2d54.54842694709128!3d25.140090173787023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3e5e5d876232c3eb%3A0x14e8727ec5ee2be1!2sNYU%20Abu%20Dhabi!3m2!1d24.523894799999997!2d54.4345558!4m5!1s0x3ef676ad264b24c1%3A0x10f6affe1a9e78a3!2sRas%20Al-Khaimah%2C%20Ras%20Al%20Khaimah!3m2!1d25.800692599999998!2d55.9761994!5e0!3m2!1sen!2sae!4v1736625218678!5m2!1sen!2sae" allowfullscreen></iframe>
+
+</div>
+
+<footer>
+    <p><a href="ras-transportation.html"><b>Return To Top</b></a></p>
+    <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+    <p> Phone: <a href="tel:+971 562396347">+971 562396347</a> |  Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+    <p>&copy; 2025 Transportation Services. All rights reserved.</p>
+</footer>
+
+<script>
+
+    const arrows = [
+    { 
+        travelLeft: "Buses need a card, and you must know the right stops and routes to take", 
+        travelRight: "Top up your bus card before you go, and let Google Maps lead the way!",
+        faqsLeft: "Where can I get my bus card from, and how can I have it topped up?", 
+        faqsRight: "Buy the bus card loaded with AED 20 at the bookstore and top it up there anytime."
+    }
+];
+
+let currentIndex = 0;
+
+function updateArrows() {
+    const currentArrows = arrows[currentIndex];
+
+    // Update arrows for Travel Tips
+    document.querySelector('#travel-tips .arrow.left').innerText = currentArrows.travelLeft;
+    document.querySelector('#travel-tips .arrow.right').innerText = currentArrows.travelRight;
+
+    // Update arrows for FAQs
+    document.querySelector('#faqs .arrow.left').innerText = currentArrows.faqsLeft;
+    document.querySelector('#faqs .arrow.right').innerText = currentArrows.faqsRight;
+
+    // Show all arrows
+    document.querySelectorAll('.arrow-card').forEach(arrow => arrow.style.opacity = 1);
+}
+    function hideArrows() {
+        document.querySelectorAll('.arrow-card').forEach(arrow => arrow.style.opacity = 0);
+    }
+
+    function cycleArrows() {
+        updateArrows();
+        
+        // Show arrows for 6 seconds for better readability
+        setTimeout(() => {
+            hideArrows();
+            currentIndex = (currentIndex + 1) % arrows.length; // Move to next set of arrows
+        }, 6000); // Show arrows for 6 seconds
+
+        // Short hiding time for arrows
+        setTimeout(hideArrows, 7000); // Hide arrows for 1 second
+    }
+
+    cycleArrows();
+    setInterval(cycleArrows, 8000); // Change arrows every 8 seconds
+</script>
+
+</body>
+</html>
+

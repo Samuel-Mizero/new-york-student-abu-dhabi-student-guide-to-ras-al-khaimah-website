@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Ras Al Khaimah</title>
+    <link rel="stylesheet" href="ras-home-page.css">
+    <link rel="icon" href="Rasicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the footer stays at the bottom */
+        }
+        header {
+            background-color: #444749;
+            padding: 20px 0; /* Increased header height */
+        }
+        .logo {
+            padding: 10px;
+            font-weight: bold;
+            font-size: 60px;
+            background-color: #444749;
+            color: white; /* Logo text color */
+        }
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 31px;   /* Adjust as needed */
+            right: 30px; /* Align to the right edge */
+            z-index: 2;  /* Ensure it appears above other elements */
+        }
+        .tabs {
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            position: absolute;
+            top: 50px; /* Adjust based on the height of the logo and menu icon */
+            right: 10px;
+            background-color: #444749;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1; /* Ensure it appears below the menu icon */
+        }
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block; /* Make links block elements */
+        }
+        .tabs a:hover {
+            background-color: #c45b2a; /* Change background on hover c45b2a */
+        }
+        .section {
+            max-width: calc(100% - 1.6cm); /* Leave 0.4cm space on both sides */
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #45a049;   
+            border-radius: 8px;
+            background-color: #7A4B3A;
+            margin-top: 20px; /* Space above section */  
+        }
+        .contact-section {
+            margin-bottom: 20px;
+            background-color: #5f575e;
+
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-row div {
+            flex-basis: 49%;
+        }
+        .form-row label {
+            margin-bottom: 5px;
+            display: block;
+            color: black;
+            font-weight: bold;
+        }
+        .form-row label span {
+            color: rgb(218, 108, 6); /* Red color for asterisk */
+            margin-left: 5px;
+        }
+        .form-row input {
+            padding: 10px;
+            border: 1px solid #a2a0a3;
+            border-radius: 4px;
+            width: 96%;
+        }
+        .form-row.textarea {
+            flex-direction: column;
+        }
+        .form-row textarea {
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #0c0d0d;
+            border-radius: 4px;
+            width: 98%;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #27e13a;
+        }
+        .reset-button {
+            background-color: #e8811a; /* Red */
+        }
+        .reset-button:hover {
+            background-color: #f47f1f; /* Darker Red */
+        }
+        footer {
+            margin-top: 30px; /* Push footer to the bottom */
+            background-color: #030018; /* Background color for the footer */
+            color: white; /* Footer text color */
+            text-align: center; /* Center footer text */
+            padding: 10px 0; /* Padding for the footer */
+        }
+        main {
+            flex-grow: 1; /* Allow main to grow and push footer down */
+        }
+        .services {
+    display: flex;
+    justify-content: space-between; /* Space between service cards */
+    padding: 20px;
+}
+
+.service-card {
+    background-color:white;
+    border-radius: 10px;
+    padding: 1px;                  /* Reduced padding for smaller height */
+    width: 45%;                    /* Adjusted width for better fit */
+    color: black;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    border: 1px solid #45a049;     /* Optional: border for visibility */
+    line-height: 1;                /* Single line spacing */
+    
+    display: flex;                 /* Use flexbox for centering */
+    justify-content: center;       /* Center text horizontally */
+    align-items: center;           /* Center text vertically */
+    border: 2px solid black; /* Example: 2px solid border with color #45a049 */
+}
+
+.service-card:hover {
+    transform: scale(1.05);        /* Scale effect on hover */
+}
+
+.circle-card {
+    width: 180px;                  /* Reduced width for smaller size */
+    height: 180px;                 /* Reduced height for smaller size */
+    border-radius: 50%;            /* Make it circular */
+    background-color: #a2a0a3;     /* Background color */
+    color: black;     /* Text color */
+    font-size: x-large;              /* Font size */
+    display: flex;                 /* Use flexbox for centering */
+    justify-content: center;        /* Center text vertically */
+    align-items: center;           /* Center text horizontally */
+    margin: 0 20px;                /* Center the card with margin on sides */
+    transition: transform 0.3s;    /* Transition effect */
+    position: relative;            /* Allow absolute positioning for text */
+
+}
+
+.circle-card:hover {
+    transform: scale(1.1);         /* Scale effect on hover */
+}
+
+.circle-card p {
+    margin: 0;                     /* Remove default margin */
+    text-align: center;            /* Center text */
+    font-family: 'Gill Sans';      /* Font family */
+    line-height: 1;                /* Single line spacing */
+}
+ .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            color: black;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 2px solid black; /* Example: 2px solid border with color #45a049 */
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .card h2 {
+            margin: 0 0 10px;
+            text-align: center;
+            color: #1a732a;
+        }
+
+        .card p {
+            margin: 13px 16;
+            text-align: center;
+        }
+        .departments {
+            display: flex;
+            max-width: 900px;
+            justify-content: space-between;
+            margin-top: 20px;
+            text-align: center;
+
+        }
+        .department {
+            background-color: white;
+            border-radius: 8px;
+            flex: 1;
+            margin: 4 15px;
+            margin: 10px; /* Single line to separate department cards */
+            padding: 10px;
+            color: black;
+            text-align: center;
+            border: 2px solid black; /* Example: 2px solid border with color #45a049 */
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><strong>RAK Getaway for NYUAD Students</strong></div>
+        <button class="menu-icon" onclick="toggleTabs()">☰</button>
+        <div class="tabs" id="tabs">
+            <a href="index.html">Home Page</a>
+            <a href="ras-culture-overview.html">Culture Overview</a>
+            <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+            <a href="ras.shopping.html">Malls Go Shopping</a>
+            <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+            <a href="hospitality.html">Hospitality Services</a>
+            <a href="ras-contact.html">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Image Slider -->
+        <div class="section slider" style="border-radius: 8px; margin-top: 19px; margin-bottom: 19px;">
+            <img src="house.png" alt="Hotel" style="animation-delay: 0s;">
+            <img src="raa.png" alt="Restaurant" style="animation-delay: 2s;">
+            <img src="wow.png" alt="Hotel" style="animation-delay: 4s;">
+            <img src="mosi.png" alt="Cafe" style="animation-delay: 6s;">
+            <img src="mount.png" alt="Restaurant" style="animation-delay: 8s;">
+            <img src="rea.png" alt="Hotel" style="animation-delay: 10s;">
+            <img src="camel.png" alt="Hotel" style="animation-delay: 12s;">
+            <!-- Text floating over the slider -->
+
+        </div>  
+
+        <div class="services">
+            <div class="service-card">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <img src="insp.png" alt="Avatar" style="width: 70px; height: 70px; border-radius: 50%; margin-right: 20px; margin-left: 10px;">
+                    <p style="margin: 0; text-align: center; font-size: 1.5em; line-height: 1.5;"><b>Ready to take a break from Saadiyat Island’s study sessions and find new inspiration?</b></p>
+                </div>
+            </div>
+            
+            <div class="circle-card" id="travel-tips">
+                <p><b>Or</b></p>
+            </div>
+            
+            <div class="service-card">
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <p style="margin: 0; margin-right: 20px; margin-left: 10px; font-size: 1.5em; line-height: 1.5;"><b>Looking for a refreshing break from the fast-paced university routine?</b></p>
+                    <img src="stress.png" alt="Avatar" style="width: 70px; height: 70px; border-radius: 50%; margin-right: 10px;">
+                </div>
+            </div>
+        </div>
+    <div class="container">
+        <h1>Ras Al Khaimah (RAK) is calling!</h1>
+        <p>Just a few hours away, this northern gem of the UAE offers the perfect escape to recharge and unwind. With its stunning landscapes and rich culture, RAK promises a unique experience. Whether you’re bonding with friends or seeking adventure, a different side of the country awaits you</p>
+        <h1>But #why you for RAK?</h1>
+
+
+        <div class="card">
+            <img src="break.png" alt="Avatar">
+            <div>
+                <h2>A Study Break Worth Taking</h2>
+                <p>Tired of library views? Imagine prepping for exams by a serene beach or brainstorming ideas while overlooking the Hajar Mountains.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="av.png" alt="Avatar">
+            <div>
+                <h2>Quick and Easy Adventure</h2>
+                <p>Whether it’s a weekend road trip with friends or a solo day to explore, RAK is just the right distance from Abu Dhabi for a change of pace without straying too far from campus life.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="jump.png" alt="Avatar">
+            <div>
+                <h2>Hiking for All Skill Levels</h2>
+                <p>Conquer the UAE’s tallest mountain, Jebel Jais, or enjoy beginner-friendly hiking trails that make the journey as memorable as the destination.</p>
+            </div>
+        </div>
+        <h1>And #what to do at RAK?</h1>
+
+        <div class="departments">
+            <div class="department">
+                <h3>Outdoor Enthusiasts</h3>
+                <p>Swap the Saadiyat boardwalk for mountain treks, ziplining over canyons, or paddleboarding through mangroves.</p>
+            </div>
+            <div class="department">
+                <h3>Cultural Seekers</h3>
+                <p>Visit the historic Al Dhayah Fort, explore the National Museum of Ras Al Khaimah, or step into traditional Emirati culture at local souks.
+                </p>
+            </div>
+            <div class="department">
+                <h3>Relaxation Lovers</h3>
+                <p>If you need to unwind, enjoy beachfront resorts, sunset yoga, or even camping under the stars with friends from campus.</p>
+            </div>
+        </div>
+        <h1>Plan your RAK #getaway today!</h1>
+        <p>Whether you're a first-year or nearing graduation, RAK offers NYUAD students a perfect balance of relaxation and adventure. Gather your classmates, pack your essentials, and make memories that will last beyond your time at university.</p>
+    </div>
+
+    <footer>
+        <p style="color: white;"><a href="index.html"><b>Return To Top</b></a></p>
+        <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+        <p> Phone: <a href="tel:+971 562396347">+971 562396347</a> |  Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+        <p>&copy; 2025 RAK Guide. All rights reserved.</p>
+    </footer>  
+
+    <script>
+        function toggleTabs() {
+            const tabs = document.getElementById('tabs');
+            if (tabs.style.display === 'flex') {
+                tabs.style.display = 'none'; // Hide tabs
+            } else {
+                tabs.style.display = 'flex'; // Show tabs
+            }
+        }
+    </script>
+</body>
+</html>

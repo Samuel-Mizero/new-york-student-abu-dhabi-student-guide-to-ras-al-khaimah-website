@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="ras-home-page.css">
+        <link rel="icon" href="Rasicon.png">
+    </head>
+        <style>
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the footer stays at the bottom */
+        }
+        header {
+            background-color: #444749;
+            padding: 20px 0; /* Increased header height */
+        }
+        .logo {
+            padding: 10px;
+            font-weight: bold;
+            font-size: 60px;
+            background-color: #444749;
+            color: white; /* Logo text color */
+        }
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 31px;   /* Adjust as needed */
+            right: 30px; /* Align to the right edge */
+            z-index: 2;  /* Ensure it appears above other elements */
+        }
+        .tabs {
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            position: absolute;
+            top: 50px; /* Adjust based on the height of the logo and menu icon */
+            right: 10px;
+            background-color: #444749;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1; /* Ensure it appears below the menu icon */
+        }
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block; /* Make links block elements */
+        }
+        .tabs a:hover {
+            background-color: #c45b2a; /* Change background on hover c45b2a */
+        }
+        .section {
+            max-width: calc(100% - 1.6cm); /* Leave 0.4cm space on both sides */
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #45a049;   
+            border-radius: 8px;
+            background-color: #7A4B3A;
+            margin-top: 20px; /* Space above section */  
+        }
+        .contact-section {
+            margin-bottom: 20px;
+            background-color: #5f575e;
+
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-row div {
+            flex-basis: 49%;
+        }
+        .form-row label {
+            margin-bottom: 5px;
+            display: block;
+            color: black;
+            font-weight: bold;
+        }
+        .form-row label span {
+            color: rgb(179, 13, 13); /* Red color for asterisk */
+            margin-left: 5px;
+        }
+        .form-row input {
+            padding: 10px;
+            border: 1px solid #a2a0a3;
+            border-radius: 4px;
+            width: 96%;
+        }
+        .form-row.textarea {
+            flex-direction: column;
+        }
+        .form-row textarea {
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #0c0d0d;
+            border-radius: 4px;
+            width: 98%;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #27e140;
+        }
+        .reset-button {
+            background-color: #e8811a; /* Red */
+        }
+        .reset-button:hover {
+            background-color: #f41fe9; /* Darker Red */
+        }
+        footer {
+            margin-top: auto; /* Push footer to the bottom */
+            background-color: #030018; /* Background color for the footer */
+            color: white; /* Footer text color */
+            text-align: center; /* Center footer text */
+            padding: 10px 0; /* Padding for the footer */
+        }
+        main {
+            flex-grow: 1; /* Allow main to grow and push footer down */
+        }
+
+        </style>
+    <header>
+        <div class="logo"><strong>Contact Form</strong></div>
+        <button class="menu-icon" onclick="toggleTabs()">☰</button>
+        <div class="tabs" id="tabs">
+            <a href="index.html">Home Page</a>
+            <a href="ras-culture-overview.html">Culture Overview</a>
+            <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+            <a href="ras.shopping.html">Malls Go Shopping</a>
+            <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+            <a href="hospitality.html">Hospitality Services</a>
+            <a href="#Form">Contact Us</a>
+        </div>
+        <script>
+            function toggleTabs() {
+                const tabs = document.getElementById('tabs');
+                if (tabs.style.display === 'flex') {
+                    tabs.style.display = 'none'; // Hide tabs
+                } else {
+                    tabs.style.display = 'flex'; // Show tabs
+                }
+            }
+        </script>
+    </header>
+    <main>
+        <div class="section contact-section">
+            <h2 id="Form" style="text-align: center;">Need Help? Text Us!</h2>
+            <form>
+                <div class="form-row">
+                    <div>
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="Joseph" required>
+                    </div>
+                    <div>
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Dinyami" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="email">Email:<span>*</span></label>
+                        <input type="email" id="email" name="email" placeholder="joseph@example.com" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number:<span>*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+971562345178" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="location">Where are you?<span>*</span></label>
+                        <input type="text" id="location" name="location" placeholder="Abu Dhabi">
+                    </div>
+                    <div>
+                        <label for="destination">Where are you going?</label>
+                        <input type="text" id="destination" name="destination" placeholder="Ras Al Khaimah">
+                    </div>
+                </div>
+                <div class="form-row textarea">
+                    <label for="message">Your Message:<span>*</span></label>
+                    <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+                <button type="reset" class="reset-button">Reset</button>
+            </form> 
+        </div>
+        <footer>
+            <p style="color: white;"><a href="ras-contact.html"><b>Return To Top</b></a></p> 
+            <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+            <p> Phone: <a href="tel:+971 562396347">+971 562396347</a> |  Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+            <p>&copy; 2025 Contact Us. All rights reserved.</p>
+        </footer> 
+    </main>
+</html>
