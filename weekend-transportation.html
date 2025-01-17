@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Weekend Transportation Guidelines and Booking Form AY 24-25</title>
+    <link rel="icon" href="Rasicon.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(218, 214, 214);
+        }
+        header {
+            background-color: #444749;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            background-color: #030018;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .menu-icon {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 32px;   /* Adjust as needed */
+            right: 30px; /* Align to the right edge */
+            z-index: 2;  /* Ensure it appears above other elements */
+        }
+        .tabs {
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            position: absolute;
+            top: 50px; /* Adjust based on the height of the logo and menu icon */
+            right: 10px;
+            background-color: #444749;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1; /* Ensure it appears below the menu icon */
+            font-size: 16px;
+        }
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block; /* Make links block elements */
+        }
+        .tabs a:hover {
+            background-color: #c45b2a; /* Change background on hover */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        button:hover {
+            background-color: #27e13a;
+        }
+        .top-section {
+            position: relative;
+            overflow: hidden;
+            height: 400px; /* Set a height for the slideshow */
+        }
+        .slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fade 12s infinite;
+            opacity: 0;
+        }
+        .slideshow img:nth-child(1) { animation-delay: 0s; }
+        .slideshow img:nth-child(2) { animation-delay: 4s; }
+        .slideshow img:nth-child(3) { animation-delay: 8s; }
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            33%, 66% { opacity: 1; }
+        }
+        .container {
+            padding: 0 20px; /* Adjusted for consistency */
+        }
+        .section {
+            padding: 30px 20px; /* Consistent padding */
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+        }
+        .contact-info {
+            font-weight: bold;
+        }
+        ul {
+            padding-left: 20px; /* Padding for list items */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>UAE Weekend Transportation Information</h1>
+    <button class="menu-icon" onclick="toggleTabs()">☰</button>
+    <div class="tabs" id="tabs">
+        <a href="index.html">Home Page</a>
+        <a href="ras-culture-overview.html">Culture Overview</a>
+        <a href="ras-transportation.html">Abu Dhabi To RAK</a>
+        <a href="ras.shopping.html">Malls Go Shopping</a>
+        <a href="ras-torism-entertain.html">Entertainment & Tourism</a>
+        <a href="hospitality.html">Hospitality Services</a>
+        <a href="ras-contact.html">Contact Us</a>
+    </div>
+    <script>
+        function toggleTabs() {
+            const tabs = document.getElementById('tabs');
+            tabs.style.display = (tabs.style.display === 'flex') ? 'none' : 'flex'; // Toggle visibility
+        }        
+    </script>
+</header>
+
+<div class="top-section">
+    <div class="slideshow">
+        <img src="nsh.png" alt="Slide 1">
+        <img src="tsh.png" alt="Slide 2">
+        <img src="scr.png" alt="Slide 3">
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <h2>Purpose</h2>
+        <p>The NYU Abu Dhabi office of Student Affairs sponsors weekend transportation to UAE-based resident students. This service is managed by Facilities Management.</p>
+        <p>We aim to emphasize the importance of responsible communication and respect for time among the NYUAD community.</p>
+    </div>
+
+    <div class="section">
+        <h2>Definition of Terms</h2>
+        <ul>
+            <li><strong>Late Cancellation:</strong> A student who informs the NYUAD transportation staff of their inability to take the provided transport within fewer than 24 hours of departure from NYUAD on Friday at 6pm.</li>
+            <li><strong>No-show:</strong> A student who fails to communicate with <a href="mailto:nyuad.transport@nyu.edu">nyuad.transport@nyu.edu</a> within the 24-hour window of cancellation. Two “No-shows” will result in those students arranging their own transportation for the remainder of the semester.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Registration and Rules</h2>
+        <p>Students must fill out the online form found on the student portal each week to avail of the university-sponsored transport. Please keep the following in mind:</p>
+        <ul>
+            <li>Only registered UAE residents can utilize this service. Guests are not permitted.</li>
+            <li>Students must register by 10am on Thursday each week. Late requests will not be acknowledged.</li>
+            <li>Facilities Management reserves the right to decline service for poor conduct.</li>
+            <li>No alterations to the transportation schedule are allowed.</li>
+            <li>Students are responsible for any vehicle damage.</li>
+            <li>Extenuating circumstances will be considered on a case-by-case basis.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Timings for Weekend Transportation</h2>
+        <p>Transportation departs Saadiyat campus, Welcome Center at 6pm on Friday. Pick-up times on Sunday vary based on location.</p>
+        <p>Students must arrive 15 minutes before departure. Late arrivals will not be accommodated.</p>
+        <p><strong>Note:</strong> Once you are dropped off at the Corniche Al Qawasim, you can easily find a taxi or use ride-hailing services like Uber or Careem to reach your booked accommodation. The Corniche is conveniently located in the heart of the city, making transportation to your destination quick and accessible.</p>
+        <p><span class="contact-info">Local Taxi Service:</span> TransAD: 600-535-353</p>
+    </div>
+
+    <div class="section">
+        <h2>Emergency Contact</h2>
+        <p>In case of an emergency, contact the NYUAD Transportation Dispatcher:</p>
+        <p class="contact-info">Office: 02-628-4747 | Email: <a href="mailto:nyuad.transport@nyu.edu">nyuad.transport@nyu.edu</a></p>
+    </div>
+</div>
+
+<footer class="footer">
+     <p><a href="weekend-transportation.html"><b>Return To Top</b></a></p>
+     <p><button onclick="location.href='ras-contact.html';"><b>Need help? Text Us!</b></button></p>
+     <p>Phone: <a href="tel:+971562396347">+971 562396347</a> | Email: <a href="mailto:sm12165@nyu.edu">rasalkhaimah@guide.org</a></p>
+     <p>&copy; 2025 Weekend Transportation Information. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
